@@ -26,7 +26,7 @@ int getLiveNeighbours(int x, int y){
             int ny = y + j;
 
             if(nx >= 0 && nx < gridWidth && ny >= 0 && ny < gridWidth){
-                vec4 pixel = imageLoad(inputImage, ivec2(nx, ny));
+                vec4 pixel = imageLoad(inputImage, ivec2(nx. ny));
                 count += int(isCellAlive(nx, ny));
             }
         }
