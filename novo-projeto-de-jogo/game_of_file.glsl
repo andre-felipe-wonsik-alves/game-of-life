@@ -31,6 +31,7 @@ int getLiveNeighbours(int x, int y){
             }
         }
     }
+    return count;
 }
 
 void main(){

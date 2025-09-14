@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwv8cri5eanvx"]
+[gd_scene load_steps=10 format=3 uid="uid://bwv8cri5eanvx"]
 
-[ext_resource type="Shader" uid="uid://b4gda8owd5pj5" path="res://shaders/dot_matrix.gdshader" id="1_jyhfs"]
+[ext_resource type="Shader" path="res://shaders/dot_matrix.gdshader" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://bxljn2vmdnskb" path="res://textures/lit.png" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://ce8ttf82fxi5e" path="res://textures/unlit.png" id="3_tefeu"]
 [ext_resource type="Texture2D" uid="uid://c6dr7mkoxph3q" path="res://icon.svg" id="4_o6xl0"]
+[ext_resource type="Script" path="res://Dispatcher.cs" id="5_lpind"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_tipki"]
 
@@ -14,10 +15,10 @@ noise = SubResource("FastNoiseLite_tipki")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_choun"]
 shader = ExtResource("1_jyhfs")
+shader_parameter/gridWidth = 1024
 shader_parameter/unlitTexture = ExtResource("3_tefeu")
 shader_parameter/litTexture = ExtResource("2_tbgi4")
 shader_parameter/binaryDataTexture = SubResource("NoiseTexture2D_85g3d")
-shader_parameter/gridWidth = 1024
 
 [sub_resource type="Environment" id="Environment_jyhfs"]
 background_mode = 3
@@ -42,3 +43,4 @@ metadata/_edit_lock_ = true
 environment = SubResource("Environment_jyhfs")
 
 [node name="Dispatcher" type="Node" parent="."]
+script = ExtResource("5_lpind")
