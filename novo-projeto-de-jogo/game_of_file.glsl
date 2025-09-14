@@ -1,4 +1,4 @@
-// #[compute]
+#[compute]
 #version 450
 
 const int gridWidth = 1024;
@@ -26,7 +26,7 @@ int getLiveNeighbours(int x, int y){
             int ny = y + j;
 
             if(nx >= 0 && nx < gridWidth && ny >= 0 && ny < gridWidth){
-                vec4 pixel = imageLoad(inputImage, ivec2(nx. ny));
+                vec4 pixel = imageLoad(inputImage, ivec2(nx, ny));
                 count += int(isCellAlive(nx, ny));
             }
         }
@@ -35,7 +35,7 @@ int getLiveNeighbours(int x, int y){
 
 void main(){
     ivec2 pos = ivec2(gl_GlobalInvocationID.xy);
-    if(pos.x >= gridWidth || pos.y >= gridWidth) continue;
+    if(pos.x >= gridWidth || pos.y >= gridWidth) return;
 
     int liveNeighbours = getLiveNeighbours(pos.x, pos.y);
     bool isAlive = isCellAlive(pos.x, pos.y);
