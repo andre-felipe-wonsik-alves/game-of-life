@@ -14,6 +14,7 @@ public partial class Dispatcher : Node
 	[Export] private Sprite2D _renderer;
 	private RenderingDevice _rd;
 
+
 	private Rid _inputTexture;
 	private Rid _outputTexture;
 	private Rid _uniformSet;
