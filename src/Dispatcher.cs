@@ -7,7 +7,7 @@ public partial class Dispatcher : Node{
 	[ExportGroup("Settings")]
 	[Export(PropertyHint.Range, "1, 1000")]
 	private int _updateFrequency = 60;
-
+	
 	[Export] private bool _autoStart;
 	[Export] private Texture2D _dataTexture;
 
@@ -242,10 +242,6 @@ public partial class Dispatcher : Node{
 		_rd.FreeRid(_shader);
 		_rd.Free();
 		_rd = null;
-	}
-	
-	
-	
+	}	
 	#endregion
-
 }
