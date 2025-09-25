@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwv8cri5eanvx"]
+[gd_scene load_steps=11 format=3 uid="uid://bwv8cri5eanvx"]
 
 [ext_resource type="Shader" path="res://shaders/dot_matrix.gdshader" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://bxljn2vmdnskb" path="res://textures/lit.png" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://ce8ttf82fxi5e" path="res://textures/unlit.png" id="3_tefeu"]
 [ext_resource type="Texture2D" uid="uid://c6dr7mkoxph3q" path="res://icon.svg" id="4_o6xl0"]
 [ext_resource type="Script" path="res://Dispatcher.cs" id="5_brlqu"]
+[ext_resource type="Script" path="res://scenes/Camera.gd" id="6_rurv8"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_tipki"]
 
@@ -46,3 +47,9 @@ environment = SubResource("Environment_jyhfs")
 script = ExtResource("5_brlqu")
 _computeShader = "res://game_of_file.glsl"
 _renderer = NodePath("../Renderer")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(960, 536)
+script = ExtResource("6_rurv8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera"]
