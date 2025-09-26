@@ -1,3 +1,4 @@
+![alt image](./assets/preview.gif)
 # Game of Life  
 ## Introduction  
 The main objective of this repository is to reproduce the famous *Conway's Game of Life* *Cellular Automata* algorithm in a Godot 4 environment. The Dispatcher code (for building the render pipeline) was originally written in C#, but for compatibility reasons, I chose to convert it to the GDScript language.
