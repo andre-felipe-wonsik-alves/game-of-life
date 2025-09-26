@@ -50,6 +50,10 @@ _renderer = NodePath("../Renderer")
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(960, 536)
+zoom = Vector2(5, 5)
+limit_left = 0
+limit_top = -1080
+limit_right = 1920
+limit_bottom = 1080
+limit_smoothed = true
 script = ExtResource("6_rurv8")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera"]
