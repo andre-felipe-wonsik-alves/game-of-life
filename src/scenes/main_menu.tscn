@@ -1,0 +1,140 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2d1e4id36046"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_jo7gm"]
+[ext_resource type="Texture2D" uid="uid://g0jg00y3iysb" path="res://textures/menu-backgound.png" id="1_qbddd"]
+[ext_resource type="PackedScene" uid="uid://d66f7wujg8oo" path="res://scenes/fade.tscn" id="3_sht8k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e63gr"]
+font_size = 30
+
+[node name="Main menu" type="Node2D"]
+script = ExtResource("1_jo7gm")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 1917.0
+offset_bottom = 1080.0
+texture = ExtResource("1_qbddd")
+
+[node name="menu" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 139.0
+offset_top = 307.0
+offset_right = 580.0
+offset_bottom = 793.0
+grow_vertical = 2
+color = Color(0.239216, 0.239216, 0.282353, 0.709804)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.0
+offset_right = 163.0
+offset_bottom = 69.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="UI/menu/VBoxContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/menu/VBoxContainer"]
+layout_mode = 2
+text = "Conway's Game of Life"
+label_settings = SubResource("LabelSettings_e63gr")
+horizontal_alignment = 1
+
+[node name="subtitle" type="Label" parent="UI/menu/VBoxContainer"]
+layout_mode = 2
+text = "feito por André"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/menu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -149.0
+offset_top = -40.0
+offset_right = 149.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="start" type="Label" parent="UI/menu/VBoxContainer2"]
+layout_mode = 2
+text = "Aperte a tecla <espaço> para começar!"
+
+[node name="Label2" type="Label" parent="UI/menu/VBoxContainer2"]
+layout_mode = 2
+
+[node name="quit" type="Button" parent="UI/menu/VBoxContainer2"]
+layout_mode = 2
+text = "Sair"
+
+[node name="Label" type="Label" parent="UI/menu/VBoxContainer2"]
+layout_mode = 2
+
+[node name="description" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 769.0
+offset_top = 182.0
+offset_right = 1771.0
+offset_bottom = 910.0
+grow_vertical = 2
+color = Color(0.239216, 0.239216, 0.282353, 0.709804)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/description"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -499.0
+offset_right = 496.0
+offset_bottom = 96.0
+grow_horizontal = 2
+
+[node name="space" type="Label" parent="UI/description/VBoxContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/description/VBoxContainer"]
+layout_mode = 2
+text = "Contextualização"
+label_settings = SubResource("LabelSettings_e63gr")
+horizontal_alignment = 1
+
+[node name="space2" type="Label" parent="UI/description/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/description/VBoxContainer"]
+layout_mode = 2
+
+[node name="CellularAutomata" type="Label" parent="UI/description/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "lorem"
+autowrap_mode = 2
+
+[node name="Fade_transition" parent="." instance=ExtResource("3_sht8k")]
+visible = false
+
+[node name="fade_timer" type="Timer" parent="Fade_transition"]
+
+[connection signal="pressed" from="UI/menu/VBoxContainer2/quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="Fade_transition/fade_timer" to="." method="_on_fade_timer_timeout"]

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ce8ttf82fxi5e" path="res://textures/unlit.png" id="3_tefeu"]
 [ext_resource type="Texture2D" uid="uid://c6dr7mkoxph3q" path="res://icon.svg" id="4_o6xl0"]
 [ext_resource type="Script" path="res://Dispatcher.cs" id="5_brlqu"]
-[ext_resource type="Script" path="res://scenes/Camera.gd" id="6_rurv8"]
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="6_rurv8"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_tipki"]
 
@@ -50,7 +50,6 @@ _renderer = NodePath("../Renderer")
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(960, 536)
-zoom = Vector2(5, 5)
 limit_left = 0
 limit_top = -1080
 limit_right = 1920
