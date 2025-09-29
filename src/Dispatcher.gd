@@ -1,17 +1,12 @@
 extends Node
 class_name Dispatcher
 
-# ========== Settings ==========
 @export_range(1, 1000) var _update_frequency: int = 60
 @export var _auto_start: bool = false
 @export var _data_texture: Texture2D
-
-# ========== Requirements ==========
-# Recomendo exportar como RDShaderFile para evitar problemas de load.
 @export var _compute_shader: RDShaderFile
 @export var _renderer: Sprite2D
 
-# ========== Internals ==========
 var _rd: RenderingDevice
 
 var _input_texture: RID
@@ -21,7 +16,7 @@ var _shader: RID
 var _pipeline: RID
 
 var _bindings: Array[RDUniform] = []
-
+"res://Dispatcher.gd"
 var _input_image: Image
 var _output_image: Image
 var _render_texture: ImageTexture
@@ -176,7 +171,6 @@ func _update_gpu() -> void:
 	var cl := _rd.compute_list_begin()
 	_rd.compute_list_bind_compute_pipeline(cl, _pipeline)
 	_rd.compute_list_bind_uniform_set(cl, _uniform_set, 0)
-	# 32x32 grupos para 1024x1024 com local_size de 32 (ajuste se seu shader usar outro local_size)
 	_rd.compute_list_dispatch(cl, 32, 32, 1)
 	_rd.compute_list_end()
 	_rd.submit()

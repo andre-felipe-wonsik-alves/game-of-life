@@ -132,7 +132,6 @@ text = "lorem"
 autowrap_mode = 2
 
 [node name="Fade_transition" parent="." instance=ExtResource("3_sht8k")]
-visible = false
 
 [node name="fade_timer" type="Timer" parent="Fade_transition"]
 
